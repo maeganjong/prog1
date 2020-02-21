@@ -1,0 +1,74 @@
+public class pset1 {
+
+    static int fib1(int num){
+        if (num <= 1){
+            return num;
+        }
+        return fib1(num - 1) + fib1(num - 2);
+    }
+
+    static int fib2(int num){
+        if (num <= 1){
+            return num;
+        }
+        int result = 0;
+        int back1 = 0;
+        int back2 = 1;
+
+        for (int i = 2; i <= num; i++){
+            result = back1 + back2;
+            back2 = back1;
+            back1 = result;
+        }
+
+        return result
+    }
+
+    static int fib3(int num){
+        if (num <= 1){
+            return num;
+        }
+        
+        int[][] mat = new int[][] {{0, 1}, {1, 1}};
+        return power(mat, num)[0][1];
+    }
+
+    static int[][] multiply(int[][] mat1, int[][] mat2){
+        int a = (mat1[0][0] * mat2[0][0] + 
+            mat1[0][1] * mat2[1][0]); 
+        int b = (mat1[1][0] * mat2[0][0] + 
+            mat1[1][1] * mat2[1][0]);
+        int c = (mat1[0][0] * mat2[0][1] + 
+            mat1[0][1] * mat2[1][1]);
+        int d = (mat1[1][0] * mat2[0][1] + 
+            mat1[1][1] * mat2[1][1]);
+        
+        int[][] result = new int[][] {{0, 0}, {0, 0}}
+        result[0][0] = a;
+        result[1][0] = b;
+        result[0][1] = c;
+        result[1][1] = d;
+
+        return result;
+    }
+
+    static int[][] power(int[][] mat, int exp){
+        if (exp <= 1){
+            return; 
+        }
+          
+        mat = power(mat, exp/2);
+        mat = multiply(mat, mat);
+          
+        if (exp % 2 != 0){
+            mat = multiply(mat, [[0, 1], [1, 1]]);
+        }  
+        return mat;
+    }
+
+    public static void main (String args[]) 
+    { 
+         int n = 9; 
+     System.out.println(fib3(n)); 
+    } 
+}
