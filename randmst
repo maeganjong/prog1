@@ -7,9 +7,8 @@ JC = javac
 CLASSES = \
 	prog1.java
 
-default: classes
-
-classes: $(CLASSES:.java=.class)
+default:
+	$(CLASSES:.java=.class)
 
 clean:
 	$(RM) *.class
