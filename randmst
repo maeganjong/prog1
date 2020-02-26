@@ -8,7 +8,9 @@ CLASSES = \
 	prog1.java
 
 default:
-	$(CLASSES:.java=.class)
+	classes
+
+classes: $(CLASSES:.java=.class)
 
 clean:
 	$(RM) *.class
