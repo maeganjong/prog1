@@ -76,10 +76,10 @@ public class prog1{
 				// Calculate average weight
 				float total = 0.0f;
 
-				for (int i = 0; i < V. length; i++) {
-					total += dist[i];
+				for (int i = 1; i < V. length; i++) {
+					total += dist[i] - dist[prev[i]];
 				}
-				System.out.println(total / n);
+				System.out.println(total / (n-1));
 		}
 
 
@@ -145,9 +145,9 @@ public class prog1{
 			float total = 0.0f;
 
 			for (int i = 0; i < V. length; i++) {
-				total += dist[i];
+				total += dist[i] - dist[prev[i]];
 			}
-			System.out.println(total / n);
+			System.out.println(total / (n-1));
 		}
 
 
