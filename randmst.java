@@ -164,8 +164,8 @@ public class randmst{
 
         System.out.println("Average: " + total_sum / times);
 
-        if (bool == 1){
+        /**if (bool == 1){
             System.out.println("Total time: " + (System.nanoTime() - startTime)/Math.pow(10,9) + "sec");
-        }
+        }*/
     }
 }
