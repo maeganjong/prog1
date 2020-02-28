@@ -26,6 +26,7 @@ public class randmst{
 						long seed = System.currentTimeMillis() % 1000; //define to something random
 						rand.setSeed(seed);
 						sum = 0;
+
             if (dim == 0) { // for the 0th dimension
                 float min = 2;
                 int min_index = 0;
