@@ -1,7 +1,7 @@
 randmst: javafile
 
-javafile: randmst.javafile
-	javac randmst.javac
+javafile: randmst.java
+	javac randmst.java
 
 clean:
 	rm -rf *.class
