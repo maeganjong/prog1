@@ -5,7 +5,7 @@ JC = javac
 	$(JC) $(JFLAGS) $*.java
 
 CLASSES = \
-	prog1.java
+	randmst.java
 
 classes:
 	$(CLASSES:.java=.class)
