@@ -26,6 +26,7 @@ public class randmst{
 						long seed = System.currentTimeMillis() % 1000; //define to something random
 						rand.setSeed(seed);
 						sum = 0;
+
             if (dim == 0) { // for the 0th dimension
                 double min = 2;
                 int min_index = 0;
@@ -42,7 +43,7 @@ public class randmst{
                                 arr[i] = value;
                             }
                             if (arr[i] < min) {
-                                min = arr[i];
+                                min = (float) arr[i];
                                 min_index = i;
                             }
                         }
@@ -75,7 +76,7 @@ public class randmst{
 														for (int d = 0; d < dim; d++) {
 															dist += (point[i][d] - point[min_index][d])*(point[i][d] - point[min_index][d]);
 														}
-														dist = (double) Math.sqrt(dist);
+														dist = Math.sqrt(dist);
 
 														if (dist < arr[i]) {
                                 arr[i] = dist;
