@@ -21,10 +21,10 @@ public class randmst{
         float total_sum = 0;
 
         Random rand = new Random();
-				long seed = System.currentTimeMillis() % 1000; //define to something random
-				rand.setSeed(seed);
 
         for (int count = 0; count < times; count++) {
+						long seed = System.currentTimeMillis() % 1000; //define to something random
+						rand.setSeed(seed);
 						sum = 0;
             if (dim == 0) { // for the 0th dimension
                 float min = 2;
