@@ -16,9 +16,9 @@ public class randmst{
             startTime = System.nanoTime();
         }
 
-        float arr[] = new float[n];
-        float sum = 0;
-        float total_sum = 0;
+        double arr[] = new double[n];
+        double sum = 0;
+        double total_sum = 0;
 
         Random rand = new Random();
 
@@ -27,7 +27,7 @@ public class randmst{
 						rand.setSeed(seed);
 						sum = 0;
             if (dim == 0) { // for the 0th dimension
-                float min = 2;
+                double min = 2;
                 int min_index = 0;
                 for (int j = 0; j < n; j++) { //first populate this area with a value larger than possible generated from RNG
                     arr[j] = 2;
@@ -37,7 +37,7 @@ public class randmst{
                 for (int j = 0; j < n; j++){
                     for (int i = 0; i < n; i++) {
                         if (arr[i] >= 0) {
-                            float value = rand.nextFloat();
+                            double value = rand.nextDouble();
                             if (value < arr[i]) {
                                 arr[i] = value;
                             }
@@ -54,8 +54,8 @@ public class randmst{
             }
 
             else {
-                float min = n*n;
-                float point[][] = new float[n][dim]; // matrix for all of your points
+                double min = dim;
+                double point[][] = new double[n][dim]; // matrix for all of your points
 
                 // generate point for arr[0] - arbitrary point
 
@@ -63,7 +63,7 @@ public class randmst{
                 for (int j = 0; j < n; j++) { //first populate this area with a value larger than possible generated from RNG
                     arr[j] = min;
 										for (int i = 0; i < dim; i++) {
-											point[j][i] = rand.nextFloat();
+											point[j][i] = rand.nextDouble();
 										}
                 }
 
@@ -71,11 +71,11 @@ public class randmst{
                 for (int j = 0; j < n; j++){
                     for (int i = 0; i < n; i++) {
                         if (arr[i] >= 0) {
-                            float dist = 0;
+                            double dist = 0;
 														for (int d = 0; d < dim; d++) {
 															dist += (point[i][d] - point[min_index][d])*(point[i][d] - point[min_index][d]);
 														}
-														dist = (float) Math.sqrt(dist);
+														dist = (double) Math.sqrt(dist);
 
 														if (dist < arr[i]) {
                                 arr[i] = dist;
@@ -89,7 +89,7 @@ public class randmst{
                     }
                     sum += arr[min_index];
                     arr[min_index] = -1; //add the shortest distance node to the MST by marking it
-										min = n*n; // reset min
+										min = dim; // reset min
                 }
             }
             // else if (dim == 3) {
