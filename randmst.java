@@ -11,7 +11,7 @@ public class randmst{
         int times = Integer.parseInt(args[2]);
         int dim = Integer.parseInt(args[3]);
 
-				long startTime;
+				long startTime = 0;
         if (bool == 1) {
             startTime = System.nanoTime();
         }
