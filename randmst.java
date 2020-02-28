@@ -11,8 +11,9 @@ public class randmst{
         int times = Integer.parseInt(args[2]);
         int dim = Integer.parseInt(args[3]);
 
+				long startTime;
         if (bool == 1) {
-            long startTime = System.nanoTime();
+            startTime = System.nanoTime();
         }
 
         float arr[] = new float[n];
