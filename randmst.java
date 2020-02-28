@@ -67,7 +67,7 @@ public class randmst{
                 for (int j = 0; j < n; j++){
                     for (int i = 0; i < n; i++) {
                         if (arr[i] >= 0) {
-                            float dist = Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2)));
+                            float dist = (float) Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2)));
                             if (dist < arr[i]) {
                                 arr[i] = dist;
                             }
@@ -98,7 +98,7 @@ public class randmst{
                 for (int j = 0; j < n; j++){
                     for (int i = 0; i < n; i++) {
                         if (arr[i] >= 0) {
-                            float dist = Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2) + Math.pow((point[i][2] - point[min_index][2]),2)));
+                            float dist = (float) Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2) + Math.pow((point[i][2] - point[min_index][2]),2)));
                             if (dist < arr[i]) {
                                 arr[i] = dist;
                             }
@@ -130,7 +130,7 @@ public class randmst{
                 for (int j = 0; j < n; j++){
                     for (int i = 0; i < n; i++) {
                         if (arr[i] >= 0) {
-                            float dist = Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2) + Math.pow((point[i][2] - point[min_index][2]),2) + Math.pow((point[i][3] - point[min_index][3]),2)));
+                            float dist = (float) Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2) + Math.pow((point[i][2] - point[min_index][2]),2) + Math.pow((point[i][3] - point[min_index][3]),2)));
 
                             if (dist < arr[i]) {
                                 arr[i] = dist;
