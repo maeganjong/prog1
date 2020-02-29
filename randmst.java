@@ -84,7 +84,7 @@ public class randmst{
 
                             if (arr[i] < min) {
                                 min = arr[i];
-                                min_index = i;
+                                min_index = i; // perhaps this is the error?
                             }
                         }
                     }
