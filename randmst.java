@@ -16,7 +16,7 @@ public class randmst{
             startTime = System.nanoTime();
         }
 
-        double arr[] = new double[n];
+        double arr[] = new double[n]; // shortest segment to that vertex
         double sum = 0;
         double total_sum = 0;
 
@@ -55,12 +55,11 @@ public class randmst{
             }
 
             else {
-                double min = dim;
+                double min = dim; // conservative estimate for minimum value of distances
                 double point[][] = new double[n][dim]; // matrix for all of your points
 
                 // generate point for arr[0] - arbitrary point
 
-                int min_index = 0;
                 for (int j = 0; j < n; j++) { //first populate this area with a value larger than possible generated from RNG
                     arr[j] = min;
 										for (int i = 0; i < dim; i++) {
@@ -68,15 +67,21 @@ public class randmst{
 										}
                 }
 
+								int min_index = 0;
+								int temp_min = 0;
                 arr[0] = 0;
                 for (int j = 0; j < n; j++){
+
                     for (int i = 0; i < n; i++) {
                         if (arr[i] >= 0) {
-                            double dist = 0;
+														double dist;
+														double subdist = 0;
 														for (int d = 0; d < dim; d++) {
-															dist += (point[i][d] - point[min_index][d])*(point[i][d] - point[min_index][d]);
+															subdist += (point[i][d] - point[min_index][d])*(point[i][d] - point[min_index][d]);
 														}
-														dist = Math.sqrt(dist);
+                            dist = Math.sqrt(subdist);
+
+                            // System.out.println("min index: " + min_index + " i: " + i + " dist: " + dist);
 
 														if (dist < arr[i]) {
                                 arr[i] = dist;
@@ -84,89 +89,30 @@ public class randmst{
 
                             if (arr[i] < min) {
                                 min = arr[i];
-                                min_index = i;
+                                temp_min = i;
+                                // System.out.println("min has changed to -> " + min);
                             }
                         }
-                    }
-                    sum += arr[min_index];
+                    } // end i loops
+
+                    // System.out.println("Break point **** " + arr[min_index]);
+										// System.out.println("min index " + min_index);
+                    min_index = temp_min;
+										sum += arr[min_index];
                     arr[min_index] = -1; //add the shortest distance node to the MST by marking it
 										min = dim; // reset min
-                }
-            }
-            // else if (dim == 3) {
-            //     float min = 3;
-            //     float point[][] = new float[n][dim]; // matrix for all of your points
-						//
-            //     // generate point for arr[0] - arbitrary point
-            //     int min_index = 0;
-            //     for (int j = 1; j < n; j++) { //first populate this area with a value larger than possible generated from RNG
-            //         arr[j] = 3;
-            //         point[j][0] = rand.nextFloat();
-            //         point[j][1] = rand.nextFloat();
-            //         point[j][2] = rand.nextFloat();
-            //     }
-            //     arr[0] = 0;
-            //     for (int j = 0; j < n; j++){
-            //         for (int i = 0; i < n; i++) {
-            //             if (arr[i] >= 0) {
-            //                 float dist = (float) Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2) + Math.pow((point[i][2] - point[min_index][2]),2)));
-            //                 if (dist < arr[i]) {
-            //                     arr[i] = dist;
-            //                 }
-						//
-            //                 if (arr[i] < min) {
-            //                     min = arr[i];
-            //                     min_index = i;
-            //                 }
-            //             }
-            //         }
-            //         sum += arr[min_index];
-            //         arr[min_index] = -1; //add the shortest distance node to the MST by marking it
-            //     }
-            // }
-            // else if (dim == 4) {
-            //     float min = 3;
-            //     float point[][] = new float[n][dim]; // matrix for all of your points
-						//
-            //     int min_index = 0;
-						//
-            //     for (int j = 1; j < n; j++) { //first populate this area with a value larger than possible generated from RNG
-            //         arr[j] = 3;
-            //         point[j][0] = rand.nextFloat();
-            //         point[j][1] = rand.nextFloat();
-            //         point[j][2] = rand.nextFloat();
-            //         point[j][3] = rand.nextFloat();
-            //     }
-            //     arr[0] = 0;
-            //     for (int j = 0; j < n; j++){
-            //         for (int i = 0; i < n; i++) {
-            //             if (arr[i] >= 0) {
-            //                 float dist = (float) Math.sqrt((Math.pow((point[i][0] - point[min_index][0]),2) + Math.pow((point[i][1] - point[min_index][1]),2) + Math.pow((point[i][2] - point[min_index][2]),2) + Math.pow((point[i][3] - point[min_index][3]),2)));
-						//
-            //                 if (dist < arr[i]) {
-            //                     arr[i] = dist;
-            //                 }
-						//
-            //                 if (arr[i] < min) {
-            //                     min = arr[i];
-            //                     min_index = i;
-            //                 }
-            //             }
-            //         }
-            //         sum += arr[min_index];
-            //         arr[min_index] = -1; //add the shortest distance node to the MST by marking it
-            //     }
-            // }
-						System.out.println(sum);
+                } // end j loop
+
+            } // end else (dim) condition
             total_sum += sum;
-						System.out.println("Time: " + (System.nanoTime() - startTime)/Math.pow(10,9) + "sec");
-						startTime = System.nanoTime();
+
+						if (bool == 1) {
+							System.out.println(sum);
+							System.out.println("Time: " + (System.nanoTime() - startTime)/Math.pow(10,9) + "sec");
+							startTime = System.nanoTime();
+						}
         }
 
-        System.out.println("Average: " + total_sum / times);
-
-        /**if (bool == 1){
-            System.out.println("Total time: " + (System.nanoTime() - startTime)/Math.pow(10,9) + "sec");
-        }*/
+        System.out.println(total_sum / times);
     }
 }
