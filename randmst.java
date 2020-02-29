@@ -113,6 +113,6 @@ public class randmst{
 						}
         }
 
-        System.out.println(total_sum / times);
+        System.out.println(total_sum / times + " " + n + " " + times + " " + dim);
     }
 }
