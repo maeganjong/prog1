@@ -43,7 +43,7 @@ public class randmst{
                             }
                             if (arr[i] < min) {
                                 min = (float) arr[i]; // redefine the minimum if the value is less than the constant
-                                min_index = i; 
+                                min_index = i;
                             }
                         }
                     }
@@ -69,7 +69,7 @@ public class randmst{
                 arr[0] = 0; // establish arbitrary starting point without loss of generality
                 for (int j = 0; j < n; j++){ // iterate n times for all the nodes
                     for (int i = 0; i < n; i++) { // goes through each node to find the minimum distance & update the array accordingly from the most recently added node
-                      for (int i = 0; i < n; i++) { 
+
                         if (arr[i] >= 0) {
 														double dist;
 														double subdist = 0;
@@ -87,7 +87,7 @@ public class randmst{
                                 temp_min = i;
                             }
                         }
-                    } // end i loops
+                    } // end i loop
 
                     min_index = temp_min;
 										sum += arr[min_index];
